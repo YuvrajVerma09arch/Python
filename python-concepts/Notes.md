@@ -1,4 +1,4 @@
-# Lambda Functions
+# 1. Lambda Functions
 Lambda functions give you a concise way to write small, throwaway functions in your code.
 
 ## lists
@@ -39,3 +39,22 @@ collection, like a list.
 # Simple Expense Tracker
 function:- add_expense.
 parameters:- expenses,amount and category.
+
+
+# 2. List Comprehension
+Makes Code more concise.
+In Python, a list comprehension is a construct that allows you to generate a new list by 
+applying an expression to each item in an existing iterable and optionally filtering 
+items with a condition. Apart from being briefer, list comprehensions often run faster.
+
+
+# In-Built Methods used
+* .isupper()-checks if the char is in uppercase. returns true or false.
+* .lower-converts the char into lowercase.
+* .join-used to attach the char in the list with empty string separator.
+* .strip-used to clean the string from leading and trailing with any special characters.
+
+
+# Case Converter
+Converts the camelCase,PascalCase into snake_case.
+Using Two Ways For loop and List Comprehension.
