@@ -58,3 +58,18 @@ items with a condition. Apart from being briefer, list comprehensions often run 
 # Case Converter
 Converts the camelCase,PascalCase into snake_case.
 Using Two Ways For loop and List Comprehension.
+
+# Bisection Method
+The bisection method is a technique for finding the roots of a real-valued function. 
+It works by narrowing down an interval where the square root lies until it converges to 
+a value within a specified tolerance.
+
+# Keywords
+* raise-The raise statement allows you to force a specific exception to occur. 
+It consists of the raise keyword followed by the exception type, and 
+enables you to provide a custom error message.
+
+# methods
+* max()-the max() function returns the largest of the input values.max(1, 2, 3) # Output: 3
+* range()-the range function, which generates a sequence of numbers you can iterate over. syntax is range(start, stop, step).
+* abs()-The abs() function returns the absolute value of a number, which is always positive, regardless of the number sign. 
