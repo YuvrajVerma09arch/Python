@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="flower-predictor" content="Know your flower with just length and width of sepal and petal">
+    <title>Flower-Predictor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: grey;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            background-image: linear-gradient(to right, cyan, blue);
+            color: white;
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        form {
+            background-color: white;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-radius: 0 0 10px 10px;
+        }
+
+        fieldset {
+            border: 1px solid black;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: darkblue;
+            padding: 0 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 500;
+            color: black;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: blue;
+            outline: none;
+        }
+
+
+        button {
+            width: 100%;
+            background-color: lightblue;
+            color: white;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+
+        .ansblock {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: white;
+            border-left: 5px solids;
+            font-size: 20px;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>YOUR Flower Predictor</h1>
+
+    <form action="/flower_predictor" method="POST">
+        <fieldset>
+            <legend>Input Flower Data</legend>
+
+            <label>Sepal Length:</label>
+            <input type="text" name="sepal_length" required placeholder="e.g. 5.1">
+
+            <label>Sepal Width:</label>
+            <input type="text" name="sepal_width" required placeholder="e.g. 3.5">
+
+            <label>Petal Length:</label>
+            <input type="text" name="petal_length" required placeholder="e.g. 1.4">
+
+            <label>Petal Width:</label>
+            <input type="text" name="petal_width" required placeholder="e.g. 0.2">
+
+            <label>Flower Color:</label>
+            <select name="color_code" style="display: block; width: 100%; padding: 12px; margin-top: 5px; margin-bottom: 10px; border: 1px solid ; border-radius: 5px;">
+                <option value="1">Red</option>
+                <option value="2">Yellow</option>
+                <option value="3">Orange</option>
+                <option value="4">White</option> </select>
+
+            <label>Does it have Thorns?</label>
+            <select name="has_thorns" style="display: block; width: 100%; padding: 12px; margin-top: 5px; margin-bottom: 10px; border: 1px solid ; border-radius: 5px;">
+                <option value="1">Yes (Has Thorns)</option>
+                <option value="0">No (Smooth)</option>
+            </select>
+
+            <button type="submit">Predict Species</button>
+        </fieldset>
+    </form>
+
+    {% if final_verdict %}
+         <div class="ansblock">
+             Result: {{ final_verdict }}
+         </div>
+    {% endif %}
+
+</body>
+</html>
