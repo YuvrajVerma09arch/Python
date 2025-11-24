@@ -83,9 +83,3 @@ HTML
 {% if result_variable %}
    <div> Only show this box if we have a result! </div>
 {% endif %}
-⚡ Quick Troubleshooting Guide
-Error Message	Likely Cause	Solution
-"Method Not Allowed"	You tried to visit a POST URL (like /predict) directly in the browser.	Go to the Home URL (/) first, then submit the form.
-"ImmutableDict not callable"	You used parentheses () to get data.	Use square brackets: request.form['key'].
-"Unhashable type: numpy.ndarray"	You used the raw model output as a dictionary key.	Wrap it in int(): species_map[int(prediction[0])].
-"Expected 2D array"	You passed a flat list to .predict.	Wrap features in extra brackets: model.predict([[f1, f2, ...]]).
