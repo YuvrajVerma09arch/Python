@@ -16,13 +16,15 @@ from sklearn.datasets import load_iris
 data = load_iris()
 
 # OPTION B: Real Data (For production)
-df = pd.read_csv('flowers.csv')           # Reads your custom Excel/CSV file
+df = pd.read_csv('flowers.csv')     
 3. Training & Saving
 
 Python
 # X = Questions (Features), y = Answers (Labels)
-model.fit(X, y)                           # The "Study" command. Model learns patterns.
-joblib.dump(model, 'flower_model.joblib') # Saves the trained model to a file.
+model.fit(X, y)                           
+joblib.dump(model, 'flower_model.joblib') 
+
+
 Part 2: The "Server" (The API)
 File: app.py
 
@@ -37,28 +39,26 @@ Flask(__name__): Creates the app object.
 app.run(debug=True): Starts the web server. debug=True allows auto-restart on code changes.
 
 2. Loading the Brain
-
 Python
-# Load this AT THE TOP (Global Scope), so it only loads once.
 model = joblib.load('flower_model.joblib')
+
+
 3. Handling Inputs (The "Ears")
 
 Python
-# If data comes from HTML Form:
-val = request.form['input_name']          # Use Square Brackets []
-
-# If data comes from Curl/Code (JSON):
+val = request.form['input_name']  
 val = request.json['input_name']
+
 4. Making Predictions (The Logic)
 
 Python
-# ⚠️ CRITICAL: The model needs a "Batch" (List of Lists)
 # Wrong: model.predict([1, 2, 3])
 # Right: model.predict([[1, 2, 3]])
 prediction_raw = model.predict([features])
 
-# Fix the NumPy Error (Convert math number to Python number)
 result = int(prediction_raw[0])
+
+
 5. Sending Responses (The "Mouth")
 
 Python
